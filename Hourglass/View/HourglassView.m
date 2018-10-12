@@ -10,8 +10,9 @@
 #import "ESTimer.h"
 #import <CoreMotion/CoreMotion.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface HourglassView()<UICollisionBehaviorDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate>
+@interface HourglassView()<UICollisionBehaviorDelegate, UIGestureRecognizerDelegate, UIAlertViewDelegate, AVAudioPlayerDelegate>
 
 @property (nonatomic, strong) CAShapeLayer *borderLayer;
 
@@ -30,11 +31,12 @@
 @property (nonatomic, strong) ESTimer *timer;
 @property (nonatomic, strong) NSMutableArray *balls;
 @property (nonatomic, strong) UIBezierPath *borderPath;
-@property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, assign) NSUInteger timeSecond;
 @property (nonatomic, strong) UILabel *ballsCountLabel;
 @property (nonatomic, strong) UILabel *ballsCountLabelUp;
 @property (nonatomic, strong) UILabel *ballsCountLabelDown;
+@property (nonatomic, assign) BOOL isAllowedMusic;
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 
 @end
 
@@ -58,11 +60,11 @@ static SystemSoundID soundID = 0;
 {
     self.timeSecond = 60;
     
+    self.isAllowedMusic = NO;
+    
     [self createBoder];
     
     [self createOperatViews];
-    
-    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self];
     
     [self createDynamic];
     
@@ -155,7 +157,7 @@ static SystemSoundID soundID = 0;
 //创建操作视图
 -(void)createOperatViews
 {
-    self.ballsCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, self.frame.origin.y/2.0, self.frame.size.width/6.0, 20)];
+    self.ballsCountLabel = [[UILabel alloc] initWithFrame:CGRectMake(LineWidth*2, self.frame.size.height/2.0 - 10, self.frame.size.width/6.0, 20)];
     self.ballsCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.timeSecond];
     self.ballsCountLabel.textColor = [UIColor redColor];
     self.ballsCountLabel.font = [UIFont systemFontOfSize:13];
@@ -222,19 +224,43 @@ static SystemSoundID soundID = 0;
                 [strongSelf createItemIsDown:YES];
                 
             }];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                NSString *str = [[NSBundle mainBundle] pathForResource:@"drop1" ofType:@"wav"];
-                NSURL *url = [NSURL fileURLWithPath:str];
-                AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(url), &soundID);
-                AudioServicesPlayAlertSoundWithCompletion(soundID, ^{
-                });
-            });
+            if(weakSelf.isAllowedMusic)
+            {
+                [weakSelf playMusicAfter:0.5];
+            }
         }
         else
         {
             [self stopTimer];
         }
     }];
+}
+
+-(void)playMusicAfter:(CGFloat)delay
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        NSString *str = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"drop%u", arc4random_uniform(2)+1] ofType:@"wav"];
+//        NSURL *url = [NSURL fileURLWithPath:str];
+//        AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)(url), &soundID);
+//        AudioServicesPlayAlertSoundWithCompletion(soundID, ^{
+//        });
+        AVAudioSession *session = [AVAudioSession sharedInstance];
+        [session setActive:YES error:nil];
+        [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+        
+        // 1.获取要播放音频文件的URL
+        NSURL *fileURL = [[NSBundle mainBundle]URLForResource:[NSString stringWithFormat:@"drop%u", arc4random_uniform(2)+1] withExtension:@"wav"];
+        // 2.创建 AVAudioPlayer 对象
+        self.audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:fileURL error:nil];
+        // 3.打印歌曲信息
+//        NSString *msg = [NSString stringWithFormat:@"音频文件声道数:%ld\n 音频文件持续时间:%g",self.audioPlayer.numberOfChannels,self.audioPlayer.duration];
+//        NSLog(@"%@",msg);
+        // 4.设置循环播放
+        self.audioPlayer.numberOfLoops = 1;
+        self.audioPlayer.delegate = self;
+        // 5.开始播放
+        [self.audioPlayer play];
+    });
 }
 
 //停止计时
@@ -262,15 +288,10 @@ static SystemSoundID soundID = 0;
     return retView;
 }
 
-//长按添加小球事件
--(void)addBalls:(UILongPressGestureRecognizer *)item
-{
-    [self addBallManual];
-}
-
 //手动添加按钮统一处理事件
 -(void)addBallManual
 {
+    [self playMusicAfter:0.3];
     [self refreshLabels];
     if(totalBalls < maxBalls)
     {
@@ -404,8 +425,6 @@ static SystemSoundID soundID = 0;
     imageView.clipsToBounds = YES;
     imageView.tag = isDown?200:100;
     imageView.layer.cornerRadius = imageView.frame.size.width/2.0;
-//    imageView.layer.borderColor = [UIColor redColor].CGColor;
-//    imageView.layer.borderWidth = 0.5;
     imageView.userInteractionEnabled = YES;
     imageView.backgroundColor = randomColor;
     [self addSubview:imageView];
@@ -484,6 +503,11 @@ static SystemSoundID soundID = 0;
         _balls = [NSMutableArray new];
     }
     return _balls;
+}
+
+-(void)reSetIsAllowedMusic:(BOOL)isAllowedMusic
+{
+    _isAllowedMusic = isAllowedMusic;
 }
 
 @end

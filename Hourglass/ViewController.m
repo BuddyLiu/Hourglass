@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *minusBtn;
 @property (strong, nonatomic) IBOutlet UIButton *addBtn;
 @property (strong, nonatomic) IBOutlet UIButton *startBtn;
+@property (strong, nonatomic) IBOutlet UIButton *soundBtn;
 
 @property (nonatomic, strong) HourglassView *animationView;
 
@@ -49,6 +50,14 @@
     {
         [self setStartTimerViewState];
         [self.animationView startTimer];
+        if(self.soundBtn.tag == 1001)
+        {
+            [self.animationView reSetIsAllowedMusic:NO];
+        }
+        else
+        {
+            [self.animationView reSetIsAllowedMusic:YES];
+        }
     }
     else
     {
@@ -84,6 +93,22 @@
     [self setStopTimerViewState];
     [self.animationView stopTimer];
     [self.animationView addBallManual];
+}
+
+- (IBAction)soundBtnAction:(UIButton *)sender
+{
+    if(sender.tag == 1001)
+    {
+        sender.tag = 1002;
+        [sender setImage:[UIImage imageNamed:@"sound_on"] forState:(UIControlStateNormal)];
+        [self.animationView reSetIsAllowedMusic:YES];
+    }
+    else
+    {
+        sender.tag = 1001;
+        [sender setImage:[UIImage imageNamed:@"sound_off"] forState:(UIControlStateNormal)];
+        [self.animationView reSetIsAllowedMusic:NO];
+    }
 }
 
 -(void)setStartTimerViewState

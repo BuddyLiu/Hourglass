@@ -54,4 +54,11 @@
  */
 -(NSInteger)removeBallManal;
 
+/**
+ 设置是否允许播放音乐
+
+ @param isAllowedMusic YES-允许 NO-不允许
+ */
+-(void)reSetIsAllowedMusic:(BOOL)isAllowedMusic;
+
 @end
