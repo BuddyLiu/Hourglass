@@ -72,7 +72,7 @@
             [weakSelf.animationView refreshHourglassView];
             __weak typeof(weakSelf) strongSelf = weakSelf;
             [UIView animateWithDuration:0.5 animations:^{
-                [strongSelf.mainView addSubview:strongSelf.animationView];
+                [strongSelf.view addSubview:strongSelf.animationView];
             }];
         }]];
         [self presentViewController:alertController animated:YES completion:nil];
