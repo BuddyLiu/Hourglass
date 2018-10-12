@@ -43,10 +43,6 @@
                                     <action selector="startBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GqO-BF-Ehl"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ar1-sK-sQ2">
-                                <rect key="frame" x="16" y="74" width="343" height="337"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeG-kA-e2r">
                                 <rect key="frame" x="16" y="419" width="343" height="100"/>
                                 <subviews>
@@ -84,14 +80,10 @@
                         <color key="backgroundColor" red="0.98431372549019602" green="0.63921568627450975" blue="0.46274509803921571" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aeG-kA-e2r" secondAttribute="trailing" constant="16" id="0i1-8a-hyj"/>
-                            <constraint firstItem="Ar1-sK-sQ2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="2my-Yz-yDl"/>
                             <constraint firstItem="2Jf-OA-yV9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="E1I-bA-nYb"/>
                             <constraint firstItem="6Ud-lg-Uzj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="GNP-hV-jwY"/>
-                            <constraint firstItem="Ar1-sK-sQ2" firstAttribute="top" secondItem="6Ud-lg-Uzj" secondAttribute="bottom" constant="8" id="J1g-pM-xvw"/>
                             <constraint firstItem="2Jf-OA-yV9" firstAttribute="top" secondItem="aeG-kA-e2r" secondAttribute="bottom" constant="8" id="KGM-EI-L74"/>
-                            <constraint firstItem="aeG-kA-e2r" firstAttribute="top" secondItem="Ar1-sK-sQ2" secondAttribute="bottom" constant="8" id="LB4-Tp-jGj"/>
                             <constraint firstItem="aeG-kA-e2r" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Q5q-Ui-dFg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ar1-sK-sQ2" secondAttribute="trailing" constant="16" id="nGo-6d-orb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Jf-OA-yV9" secondAttribute="bottom" constant="20" id="otU-rm-W2l"/>
                             <constraint firstItem="6Ud-lg-Uzj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pdx-jZ-wZ4"/>
                         </constraints>
@@ -99,7 +91,6 @@
                     </view>
                     <connections>
                         <outlet property="addBtn" destination="9BV-08-4f3" id="zGX-Dn-dF6"/>
-                        <outlet property="mainView" destination="Ar1-sK-sQ2" id="3EJ-ga-rz5"/>
                         <outlet property="minusBtn" destination="ILL-nJ-1ZC" id="TeI-69-UbY"/>
                         <outlet property="nameLabel" destination="6Ud-lg-Uzj" id="p7n-ML-mbo"/>
                         <outlet property="operateView" destination="aeG-kA-e2r" id="i2m-8b-d01"/>

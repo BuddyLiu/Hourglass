@@ -12,7 +12,6 @@
 @interface ViewController ()<HourglassViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
-@property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (strong, nonatomic) IBOutlet UIView *operateView;
 @property (strong, nonatomic) IBOutlet UIButton *minusBtn;
 @property (strong, nonatomic) IBOutlet UIButton *addBtn;
@@ -126,7 +125,7 @@
         [weakSelf.animationView refreshHourglassView];
         __weak typeof(weakSelf) strongSelf = weakSelf;
         [UIView animateWithDuration:0.5 animations:^{
-            [strongSelf.mainView addSubview:strongSelf.animationView];
+            [strongSelf.view addSubview:strongSelf.animationView];
         }];
     }]];
     [self presentViewController:alertController animated:YES completion:nil];
