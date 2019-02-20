@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A6CCBD1221CE3E400768C8B /* drop1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A6CCBCF221CE3E400768C8B /* drop1.wav */; };
+		3A6CCBD2221CE3E400768C8B /* drop2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3A6CCBD0221CE3E400768C8B /* drop2.wav */; };
 		3AE43479216F33F200DFC24F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE43478216F33F200DFC24F /* AppDelegate.m */; };
 		3AE4347C216F33F200DFC24F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4347B216F33F200DFC24F /* ViewController.m */; };
 		3AE4347F216F33F200DFC24F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AE4347D216F33F200DFC24F /* Main.storyboard */; };
@@ -15,10 +17,11 @@
 		3AE43487216F33F700DFC24F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE43486216F33F700DFC24F /* main.m */; };
 		3AE43490216F3A8A00DFC24F /* HourglassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE4348E216F3A8A00DFC24F /* HourglassView.m */; };
 		3AE43494216F3A9600DFC24F /* ESTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AE43493216F3A9500DFC24F /* ESTimer.m */; };
-		3AE43497216FB14200DFC24F /* drop1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 3AE43496216FB14200DFC24F /* drop1.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A6CCBCF221CE3E400768C8B /* drop1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drop1.wav; sourceTree = "<group>"; };
+		3A6CCBD0221CE3E400768C8B /* drop2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drop2.wav; sourceTree = "<group>"; };
 		3AE43474216F33F200DFC24F /* Hourglass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hourglass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE43477216F33F200DFC24F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3AE43478216F33F200DFC24F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -33,7 +36,6 @@
 		3AE4348F216F3A8A00DFC24F /* HourglassView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HourglassView.h; sourceTree = "<group>"; };
 		3AE43492216F3A9500DFC24F /* ESTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTimer.h; sourceTree = "<group>"; };
 		3AE43493216F3A9500DFC24F /* ESTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESTimer.m; sourceTree = "<group>"; };
-		3AE43496216FB14200DFC24F /* drop1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = drop1.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A6CCBCE221CE3E400768C8B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3A6CCBCF221CE3E400768C8B /* drop1.wav */,
+				3A6CCBD0221CE3E400768C8B /* drop2.wav */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		3AE4346B216F33F200DFC24F = {
 			isa = PBXGroup;
 			children = (
@@ -75,7 +86,7 @@
 				3AE43482216F33F700DFC24F /* LaunchScreen.storyboard */,
 				3AE43485216F33F700DFC24F /* Info.plist */,
 				3AE43486216F33F700DFC24F /* main.m */,
-				3AE43495216FB12E00DFC24F /* Resource */,
+				3A6CCBCE221CE3E400768C8B /* Resource */,
 				3AE43491216F3A9500DFC24F /* ESTimer */,
 				3AE4348D216F3A7C00DFC24F /* View */,
 			);
@@ -98,14 +109,6 @@
 				3AE43493216F3A9500DFC24F /* ESTimer.m */,
 			);
 			path = ESTimer;
-			sourceTree = "<group>";
-		};
-		3AE43495216FB12E00DFC24F /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				3AE43496216FB14200DFC24F /* drop1.wav */,
-			);
-			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,7 +171,8 @@
 				3AE43484216F33F700DFC24F /* LaunchScreen.storyboard in Resources */,
 				3AE43481216F33F700DFC24F /* Assets.xcassets in Resources */,
 				3AE4347F216F33F200DFC24F /* Main.storyboard in Resources */,
-				3AE43497216FB14200DFC24F /* drop1.wav in Resources */,
+				3A6CCBD2221CE3E400768C8B /* drop2.wav in Resources */,
+				3A6CCBD1221CE3E400768C8B /* drop1.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,18 +328,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 7PFD5LSX7A;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z93M95VE4P;
 				INFOPLIST_FILE = Hourglass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qinghu.dkw;
+				PRODUCT_BUNDLE_IDENTIFIER = LiuBo.Hourglass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "840b09e7-9cac-4a0c-b615-abb237ca70e5";
-				PROVISIONING_PROFILE_SPECIFIER = dkw;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -345,18 +349,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 7PFD5LSX7A;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z93M95VE4P;
 				INFOPLIST_FILE = Hourglass/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.qinghu.dkw;
+				PRODUCT_BUNDLE_IDENTIFIER = LiuBo.Hourglass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "840b09e7-9cac-4a0c-b615-abb237ca70e5";
-				PROVISIONING_PROFILE_SPECIFIER = dkw;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
