@@ -292,7 +292,6 @@ static SystemSoundID soundID = 0;
 -(void)addBallManual
 {
     [self playMusicAfter:0.3];
-    [self refreshLabels];
     if(totalBalls < maxBalls)
     {
         totalBalls++;
@@ -301,7 +300,6 @@ static SystemSoundID soundID = 0;
     }
     else
     {
-        
         if(!isShowMessage)
         {
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"不能再加了"
@@ -313,6 +311,7 @@ static SystemSoundID soundID = 0;
             isShowMessage = YES;
         }
     }
+    [self refreshLabels];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -416,7 +415,7 @@ static SystemSoundID soundID = 0;
 {
     int x = self.frame.size.width/2.0;
     int size = ballSize;
-    CGFloat positionY = LineWidth + LineWidthHalf;
+    CGFloat positionY = self.frame.size.height/4.0;
     if(isDown)
     {
         positionY = self.frame.size.height/2.0+LineWidthHalf;
@@ -446,6 +445,7 @@ static SystemSoundID soundID = 0;
             count ++;
             if(count == 1)
             {
+                totalBalls--;
                 [self removeItem:((UIView *)view)];
             }
         }
